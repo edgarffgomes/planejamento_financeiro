@@ -4,10 +4,108 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="../assets/CSS/normalize.css">
 		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	</head>
 	<body>
-		
+		<header>
+			<div id="header" class="absolute">
+				<img class="logo absolute" src="../assets/IMG/logo.png">
+				<h2>Controle financeiro</h2>
+				
+
+				<input type="checkbox" id="check">
+
+					<label class="absolute" for="check">
+						<button id="menu" class="absolute">
+							<span class="absolute"></span>
+							<span class="absolute"></span>
+							<span class="absolute"></span>
+						</button>
+					</label>
+				<nav class="nav absolute">
+					<ul>
+						<li><a href="">Cadastro de transações</a></li>
+						<li"><a href="">Limpar Dados</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+			<section id="form" class="absolute">
+				<form>
+					<div class="absolute dropdown">
+						<label for="transaction-type" class="absolute">Tipo de transação</label>
+						<select id="transaction-type" class="absolute">
+							<option value="compra">Compra</option>
+							<option value="venda">Venda</option>
+						</select>
+					</div>
+
+					<div class="absolute input-medium name-div">
+						<label class="absolute"for="merch-name">Nome da mercadoria</label>
+						<input class="absolute" type="text" id="merch-name" placeholder="input">
+					</div>
+
+					<div class="absolute input-medium value-div">
+						<label class="absolute" for="value">Valor</label>
+						<input class="absolute" type="value" id="value" placeholder="R$ 0,00">
+					</div>
+
+					<div class="absolute button-div">
+						<button>Adicionar transação</button>
+					</div>
+				</form>
+			</section>
+
+			<section id="ac-statement" class="absolute">
+				<h2 class="absolute">Extrato de transações</h2>
+
+				<div id="frame" class="absolute">
+					<table>
+						<thead>
+							<tr>
+								<th class="absolute thead-1">Mercadoria</th>
+								<th class="absolute thead-2">Valor</th>
+							</tr>
+							<div class="absolute vl"></div>
+
+							<tbody>
+								<tr class="l1">
+									<td class="absolute" colspan="0.3">+</td>
+									<td class="absolute">Lorem ipsum dolor sit amet<br> constecteur</td>
+									<td class="absolute">R$ 12,999,99</td>
+								</tr>
+								<div class="absolute vl"></div>
+								<tr class="l2">
+									<td class="absolute" colspan="0.3">-</td>
+									<td class="absolute">Quis nostrud exercitation</td>
+									<td class="absolute">R$99,99</td>
+								</tr>
+								<div class="absolute vl"></div>
+								<tr class="l3">
+									<td class="absolute" colspan="0.3">+</td>
+									<td class="absolute">Lorem ipsum</td>
+									<td class="absolute">R4 99,99</td>
+								</tr>
+								<div class="absolute vl"></div>
+							</tbody>
+
+							<tfoot>
+								<tr class="l4">
+									<td class="absolute">Total</td>
+									<td class="absolute">R$ 12.909,99</td>
+									<td class="absolute">(LUCRO)</td>
+								</tr>
+							</tfoot>
+						</thead>
+					</table>
+				</div>
+			</section>
+
+			<footer class="absolute">
+				<div class="f-line absolute"></div>
+			</footer>
 
 	</body>
 </html>
