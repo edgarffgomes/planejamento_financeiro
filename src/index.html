@@ -10,29 +10,36 @@
 	<body>
 		<header>
 			<div id="header" class="absolute">
-				<img class="logo absolute" src="../assets/IMG/logo.png">
+				<img id="logo" class=" " src="../assets/IMG/logo.png">
 				<h2>Controle financeiro</h2>
 				
 
 				<input type="checkbox" id="check">
-
-					<label class="absolute" for="check">
-						<button id="menu" class="absolute">
-							<span class="absolute"></span>
-							<span class="absolute"></span>
-							<span class="absolute"></span>
+					<label class=" " for="check">
+						<button id="menu" class=" ">
+							<img src="../assets/IMG/hamburguer.png">
 						</button>
 					</label>
-				<nav class="nav absolute">
+
+				<nav class="nav">
+					<input type="checkbox" id="checkbox2">
+					<label for="checkbox2">
+						<button id="menu-close">
+							<img src="../assets/IMG/x-vector.svg">
+						</button>
+					</label>
 					<ul>
 						<li><a href="">Cadastro de transações</a></li>
-						<li"><a href="">Limpar Dados</a></li>
+						<li><a  href="">Limpar Dados</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 
 			<section id="form" class="absolute">
+				<div class="form-title">
+					<h2>Nova transação</h2>
+				</div>
 				<form>
 					<div class="absolute dropdown">
 						<label for="transaction-type" class="absolute">Tipo de transação</label>
@@ -104,7 +111,7 @@
 			</section>
 
 			<footer class="absolute">
-				<div class="f-line absolute"></div>
+				<div class="f-line  absolute"></div>
 			</footer>
 
 	</body>

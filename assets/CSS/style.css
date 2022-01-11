@@ -1,3 +1,4 @@
+/*limpando formatação*/
 *{
 	margin: 0px;
 	padding: 0px;
@@ -6,18 +7,16 @@
 	font-weight: normal;
 	color: #333333;
 }
-body{
-	width: 411px;
-	height: 731px;
-	
-}
+/* aplicando mobile-first */
+
 .absolute{
 	display: flex;
 	position: absolute;
 }
 
 #header{
-	width: 431px;
+	width: 100%;
+	position: fixed;
 	height: 60px;
 	top: 0px;
 	background: #E0E0E0;
@@ -25,7 +24,7 @@ body{
 	align-items: center;
 	justify-content: space-between;
 }
-.logo{
+#logo{
 	width: 30px;
 	height: 27.63px;
 	left: 22px;
@@ -51,46 +50,54 @@ body{
 #header input{
 	display: none;
 }
-#check{
-	display: block;
-}
+
+
 #menu{
+	display: block;
 	cursor: pointer;
 	width: 24px;
 	height: 24px;
-	left: 369px;
+	margin-right: 20px;	
 	top: -10px;
 	border: none;
 	background: transparent;
 }
-#menu span{
-	height: 2px;
-	width: 18px;
-	background: #333333;
-	border-radius: 30px;
-}
-#menu span:nth-child(1){
-	top: calc(50% - 2px/2 - 5px);
-}
-#menu span:nth-child(2){
-	top: calc(50% - 2px/2);
-}
-#menu span:nth-child(3){
-	top: calc(50% - 2px/2 + 5px);
-}
-.nav{
+#check{
 	display: none;
+}
+#check:checked ~ .nav{
 	width: 351px;
+}
+#menu img{
+	width: 24px;
+	background: transparent;
+}
+
+.nav{
+	display: flex;
+	position: absolute;
+	width: 0px;
 	background: #333333;
 	top: 0px;
 	right: 0px;
-	left: 60px;
 	height: 1000px;
 	transition: all 0.7s;
 }
+#menu-close{
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#checkbox2:checked ~ .nav{
+	background: pink;
+}
+
 .nav ul{
 	list-style: none;
-	width: 100%;
+	position: absolute;
+	top: 40px;
 }
 
 .nav li:nth-child(1){
@@ -111,7 +118,6 @@ body{
 	text-decoration: none;
 	color: #FFFFFF;
 	padding: 10px 5px;
-
 }
 .nav a:hover{
 	background: #C4C4C4;
@@ -127,6 +133,10 @@ body{
 	height: 290px;
 	left: 20px;
 	top: 110px;
+	border-bottom: 1px solid #979797;
+}
+.form-title{
+	display: none;
 }
 .dropdown{
 	width: 371px;
@@ -151,7 +161,7 @@ body{
 	top: 52.99%;
 	bottom: 28.05%;
 }
-#form label, select{
+.dropdown label, .name-div label, .value-div label{
 	width: 371px;
 	left: 0%;
 	right: 0%;
@@ -171,7 +181,7 @@ body{
 #form label:nth-child(2), label:nth-child(3){	
 	bottom: 60.78%;
 }
-#form input{
+.name-div input, .value-div input{
 	width: 371px;
 	height: 32px;
 	left: 0px;
@@ -183,7 +193,8 @@ body{
 	border-radius: 4px;
 
 }
-#form select{
+.dropdown select{
+	width: 371px;
 	height: 32px;
 	left: 0%;
 	right: 0%;
@@ -216,7 +227,6 @@ body{
 	left: 20px;
 	top: 420px;
 	background: #FFFFFF;
-	border: 1px solid #333333;
 }
 #ac-statement h2{
 	font-weight: bold;
@@ -226,8 +236,6 @@ body{
 	height: 20px;
 	left: 109px;
 	top: 21px;
-
-background: #FFFFFF;
 }
 #frame{
 	width: 371px;
@@ -366,9 +374,134 @@ background: #FFFFFF;
 	text-align: right;
 }
 .f-line{
-	width: 431px;
+	position: fixed;
+	width: 100%;
 	height: 8px;
 	left: 0px;
-	top: 723px;
+	bottom: 0%;
 	background: #333333;
+}
+
+@media screen and (min-width:  768px) and (orientation: portrait){
+	#header{
+		min-width: 768px;
+	}
+	#logo{
+		width: 40px;
+	}
+	#header h2{
+		left: calc(50% - 411px/2 - 0.5px);
+		top: calc(50% - 43px/2 + 0.5px);
+	}
+	#menu{ 
+		left: 726px;
+	}	
+	#form{
+		width: 728px;
+		height: 189px;
+		top: 104px;
+		left: calc(50% - 728px/2);
+		border: 1px solid #333333;
+	}
+	.form-title{
+		display: flex;
+		position: absolute;
+		width: 174px;
+		height: 20px;
+		left: calc(50% - 174px/2);
+		top: calc(50% - 20px/2 - 64.5px);
+	}
+	.form-title h2{
+		font-weight: bold;
+		text-align: center;
+		font-size: 18px;
+	}
+	.dropdown{
+		width: 150px;
+		left: 2.75%;
+		right: 76.65%;
+		top: 32.28%;
+		bottom: 37.57%;
+	}
+	.dropdown select{
+		width: 150px;
+		height: 32px;
+		left: 0%;
+		right: 0%;
+		top: 25px;
+		border-radius: 4px;
+	}
+	.name-div{
+		width: 348px;
+		left: 26.1%;
+		right: 26.1%;
+		top: 32.28%;
+		bottom: 37.57%;
+	}
+	.name-div input{
+		width: 348px;
+		height: 32px;
+		left: 0px;
+		right: 0px;
+		top: 24px;
+		border-radius: 4px;
+	}
+	.value-div{
+		width: 150px;
+		left: 76.65%;
+		right: 2.75%;
+		top: 32.28%;
+		bottom: 38.62%;
+	}
+	.value-div input{
+		width: 150px;
+		height: 32px;
+		left: 0px;
+		right: 0px;
+		top: 24px;
+	}
+	#form label{
+		left: 0%;
+		right: 0%;
+		top: 0%;
+	}
+	#form .button-div{
+		width: 200px;
+		left: 69.78%;
+		right: 2.75%;
+		top: 71.96%;
+		bottom: 10.58%;
+	}
+	#ac-statement{
+		width: 728px;
+		height: 281px;
+		left: calc(50% - 728px/2);
+		top: 316px;
+	}
+	#ac-statement h2{
+		left: 277px;
+	}
+
+	#frame{
+		width: 728px;
+	}
+	.thead-1{
+		left: 40px;
+	}
+	.thead-2{
+		left: 675px;
+	}
+	.vl{
+		width: 728px;
+	}
+	.l1 td:nth-child(1), .l2 td:nth-child(1), .l3 td:nth-child(1){
+		left: 20px;
+	}
+	.l1 td:nth-child(2), .l2 td:nth-child(2), .l3 td:nth-child(2), .l4 td:nth-child(1){
+		left: 40px;
+	}
+	.l1 td:nth-child(3), .l2 td:nth-child(3), .l3 td:nth-child(3), .l4 td:nth-child(2), .l4 td:nth-child(3){
+		left: 610px;
+	}
+	
 }
