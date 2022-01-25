@@ -1,891 +1,338 @@
 /*limpando formatação*/
-*{
+body{
 	margin: 0px;
 	padding: 0px;
+}
+*{
 	font-family: lato;
 	font-style: normal;
 	font-weight: normal;
 	color: #333333;
 }
-/* aplicando mobile-first */
-
-.absolute{
-	display: flex;
-	position: absolute;
-}
-
+/* configurando cabeçalho */
 #header{
-	width: 100%;
+	display: flex;
 	position: fixed;
 	height: 60px;
-	top: 0px;
+	width: 100%;
 	background: #E0E0E0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 }
-#logo{
+header{
+	display: flex;
+	position: fixed;
+	height: 60px;
+	width: 100%;
+	align-items: center;
+}
+header .logo{
 	width: 30px;
 	height: 27.63px;
-	left: 22px;
-	top: 15px;
+	margin-left: 22px;
 }
-#header h2{
-	width: 411px;
-	height: 43px;
-	left: calc(50% - 411px/2);
-	top: calc(50% - 43px/2 + 0.5px);
-	display: flex;
-	justify-content: center;
-	font-style: normal;
-	font-weight: 600;
+header h2{
 	font-size: 20px;
+	font-weight: 600;
 	line-height: 24px;
-	display: flex;
-	align-items: center;
+	width: 100%;
 	text-align: center;
 }
-
-
-#header input{
-	display: none;
-}
-
-
-#menu{
-	display: block;
+header .hamburguer{
+	width: 24px;
+	margin-right: 24px;
 	cursor: pointer;
-	width: 24px;
-	height: 24px;
-	margin-right: 20px;	
-	top: -10px;
-	border: none;
-	background: transparent;
 }
-#menu img{
-	width: 24px;
-	background: transparent;
-}
-
-.nav{
+/* configurando menu de navegação */
+nav{
 	display: flex;
 	position: absolute;
+	height: 100vh;
+	display: none;
 	width: 0px;
 	background: #333333;
-	top: 0px;
-	right: 0px;
-	height: 1000px;
-	transition: all 0.7s;
-}
-#menu-close{
-	cursor: pointer;
-	background: transparent;
-	border: none;
-	padding-top: 20px;
-	padding-left: 20px;
-}
-
-.nav ul{
-	list-style: none;
-	position: absolute;
-	top: 40px;
-}
-
-.nav li:nth-child(1){
-	margin-top: 30px;
-	width: 351px;
-	height: 32px;
-	top: 62px;
-}
-.nav li:nth-child(2){
-	width: 351px;
-	height: 32px;
-	top: 101px;
-}
-
-.nav a{
-	display: block;
-	text-align: right;
-	text-decoration: none;
+	right: 0;
+	top: 0;
+	flex-direction: column;
 	color: #FFFFFF;
-	padding: 10px 5px;
-	font-family: Lato;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 19px;
+	text-align: right;
 }
-.nav a:hover{
-	background: #C4C4C4;
+.div-img{
+	width: 100%;
+	margin-top: 20px;
 }
-#frame{
-	width: 371px;
+
+nav img{
+	display: flex;
+	width: 16px; 
+	margin-left: 20px;
 }
+nav button{
+	display: flex;
+	width: 100%;
+	border: none;
+	background: transparent;
+	color: #FFFFFF;
+	padding: 10px;
+}
+nav button:hover{
+	cursor: pointer;
+	background: #FFFFFF;
+	color: #333333;
+}
+nav button:nth-child(1){
+	margin-top: 90px;
+}
+/* configurando div com conteúdos (formulário e tabela) */
+#content{
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
+	margin-top: 80px;
+	justify-content: center;
+}
+/* configurando formulário */
 #form{
-	width: 371px;
-	height: 290px;
-	left: 20px;
-	top: 110px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding-bottom: 20px;
 	border-bottom: 1px solid #979797;
 }
-.form-title{
+#form h2{
 	display: none;
 }
-.dropdown{
-	width: 371px;
-	height: 57px;
-	left: 0%;
-	right: 0%;
-	top: 0%;
-	bottom: 80.34%;
-}
-.input-medium{
+
+.wrapper{
+	display: flex;
 	width: 100%;
-	left: 0%;
-	right: 0%;
+	justify-content: center;
+	flex-direction: column;
 }
-.name-div{
-	height: 56.67px;
-	top: 26.55%;
-	bottom: 53.91%;
+form{
+	display: flex;
+	max-width: 100%;
+	flex-direction: column;
+	justify-content: center;
 }
-.value-div{
-	height: 55px;
-	top: 52.99%;
-	bottom: 28.05%;
+form label{
+	margin-bottom: 2px;
 }
-.dropdown label, .name-div label, .value-div label{
-	width: 371px;
-	left: 0%;
-	right: 0%;
-	top: 0%;
-	font-size: 14px;
-	line-height: 22px;
+form label, form input, form select{
+	width: 100%;
 }
-#form label{
-	font-size: 14px;
-	line-height: 22px;
-	text-align: center;
-}
-
-#form label:nth-child(1){
-	bottom: 61.01%;
-}
-#form label:nth-child(2), label:nth-child(3){	
-	bottom: 60.78%;
-}
-.name-div input, .value-div input{
-	width: 371px;
+form select, form input, form button{
 	height: 32px;
-	left: 0px;
-	right: 0px;
-	top: 24px;
-	background: #FFFFFF;
-	border: 1px solid #979797;
-	box-sizing: border-box;
-	border-radius: 4px;
-
 }
-.dropdown select{
-	width: 371px;
-	height: 32px;
-	left: 0%;
-	right: 0%;
-	top: 25px;
-	background: #FFFFFF;
+form select, form input{
 	border: 1px solid #979797;
-	box-sizing: border-box;
 	border-radius: 4px;
 }
-.button-div{
-	width: 371px;
-	height: 32px;
-	right: 0%;
-	top: 78.85%;
-	bottom: 9.77%;
+.first-input, .second-input, .third-input{
+	margin:  20px 20px 0px 20px;
 }
-.button-div button{
-	width: 371px;
-	height: 33px;
-	left: 0px;
-	right: 0px;
-	top: 0.78px;
+.button-form{
+	max-width: 100%;
+	margin-top: 19.78px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.button-form button{
+	width: 100%;
 	background: #333333;
 	color: #FFFFFF;
-	text-align: center;
 }
-#ac-statement{
-	width: 371px;
-	height: 281px;
-	left: 20px;
-	top: 420px;
-	background: #FFFFFF;
+/* configurando tabela */
+#table{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-top: 20px;
 }
-#ac-statement h2{
-	font-weight: bold;
+#table h2{
+	font-weight: 700;
 	font-size: 18px;
-	line-height: 22px;
-	width: 174px;
-	height: 20px;
-	left: 109px;
-	top: 21px;
+	margin-left: 90px;
 }
-#frame{
-	width: 371px;
-	height: 187px;
-	left: 0px;
-	top: 60px;
+table{
+	width: 100%;
+	border-collapse: collapse;
 }
-
-.thead-1{
-	font-weight: bold;
-	width: 72px;
-	height: 22px;
-	left: 30px;
-	top: 0px;
-	color: #000000;
+tr{
+	border-bottom: 1px solid #979797;
 }
-.thead-2{
-	font-weight: bold;
-	width: 33px;
-	height: 22px;
-	left: 296px;
-	top: 0px;
-	color: #000000;
+tfoot tr{
+	border: none;
 }
-.vl{
-	width: 371px;
-	height: 0px;
-	left: 0px;
-	border: 1px solid #979797;
-}
-.vl:nth-child(1){
-	top: 22px;
-}
-.vl:nth-child(2){
-	top: 71px;
-}
-.vl:nth-child(3){
-	top: 104px;
-}
-.vl:nth-child(4){
-	top: 140px;
-}
-#frame table td{
+thead th, tfoot td{
+	font-weight: 700;
+	padding: 10px 10px;
 	font-size: 14px;
-	color: #000000;
 }
-.l1 td:nth-child(1){
-	width: 9px;
-	height: 25.35px;
-	left: 10px;
-	top: 29px;
-	line-height: 16px;
+th:nth-child(1), th:nth-child(2), td:nth-child(1), td:nth-child(2){
+	text-align: left;
 }
-.l1 td:nth-child(2){
-	width: 231px;
-	height: 34px;
-	left: 30px;
-	top: 29px;
-	line-height: 16px;
-}
-.l1 td:nth-child(3){
-	width: 98px;
-	height: 41.83px;
-	left: 263px;
-	top: 29px;
-	line-height: 22px;
+th:nth-child(3),td:nth-child(3){
 	text-align: right;
+	
 }
-.l2 td:nth-child(1){
-	width: 9px;
-	height: 25.35px;
-	left: 10px;
-	top: 78px;
-	line-height: 16px;
-}
-.l2 td:nth-child(2){
-	width: 231px;
-	height: 18px;
-	left: 30px;
-	top: 78px;
-	line-height: 16px;
-}
-.l2 td:nth-child(3){
-	width: 98px;
-	height: 18px;
-	left: 263px;
-	top: 78px;
-	line-height: 22px;
-	text-align: right;
-}
-.l3 td:nth-child(1){
-	width: 9px;
-	height: 25.35px;
-	left: 10px;
-	top: 111px;
-	line-height: 16px;
-}
-.l3 td:nth-child(2){
-	width: 231px;
-	height: 18px;
-	left: 30px;
-	top: 111px;
-	line-height: 16px;
-}
-.l3 td:nth-child(3){
-	width: 98px;
-	height: 18px;
-	left: 263px;
-	top: 111px;
-	line-height: 22px;
-	text-align: right;
-}
-.l4 td:nth-child(1){
-	width: 72px;
-	height: 18px;
-	left: 30px;
-	top: 151px;
-	font-weight: bold;
-	line-height: 16px;
-}
-.l4 td:nth-child(2){
-	width: 98px;
-	height: 18px;
-	left: 263px;
-	top: 151px;
-	font-weight: bold;
-	text-align: right
-}
-.l4 td:nth-child(3){
-	width: 98px;
-	height: 18px;
-	left: 263px;
-	top: 169px;
-	line-height: 22px;
-	font-size: 10px;
-	text-align: right;
-}
-.f-line{
+/* Configurando footer */
+footer div{
+	display: flex;
 	position: fixed;
 	width: 100%;
-	height: 8px;
-	left: 0px;
-	bottom: 0%;
-	background: #333333;
+	background: 1px solid #333333;
 }
-
-@media screen and (min-width:  768px) and (orientation: portrait){
-	#header{
-		min-width: 768px;
-	}
-	#logo{
-		width: 40px;
-	}
-	#header h2{
-		left: calc(50% - 411px/2 - 0.5px);
-		top: calc(50% - 43px/2 + 0.5px);
-	}
-	#menu{ 
-		display: none;
-	}
-	.nav{
-		z-index: 1;
-		display: flex;
-		position: absolute;
-		width: 300px;
-		background: #333333;
-		top: 0px;
-		right: 0px;
-		height: 1500px;
-		transition: all 0.7s;
-	}
-	#menu-close{
-		position: absolute;
-		cursor: pointer;
-		background: transparent;
-		border: none;
-		padding-top: 20px;
-		padding-left: 20px;
-	}
-
-	.nav ul{
-		list-style: none;
-		position: absolute;
-		top: 40px;
-	}
-
-	.nav li:nth-child(1){
-		margin-top: 30px;
-		width: 351px;
-		height: 32px;
-		top: 62px;
-	}
-	.nav li:nth-child(2){
-		width: 351px;
-		height: 32px;
-		top: 101px;
-	}
-
-	.nav a{
-		display: flex;
-		text-align: left;
-		text-decoration: none;
-		color: #FFFFFF;
-		padding: 10px 5px;
-		font-family: Lato;
-		font-style: normal;
-		font-weight: 600;
-		font-size: 16px;
-		line-height: 19px;
-	}
-	.nav a:hover{
-		background: #C4C4C4;
-	}
+@media screen and (min-width: 768px) and (orientation: landscape){
+	/* configurando formulário */
 	#form{
+		border: 1px solid #979797;
+		padding: 0px 10px;
+	}
+	#form h2{
 		display: block;
-		width: 728px;
-		height: 189px;
-		top: 104px;
-		left: calc(50% - 728px/2);
-		border: 1px solid #333333;
-	}
-	.form-title{
-		display: flex;
-		position: absolute;
-		width: 174px;
-		height: 20px;
-		left: calc(50% - 174px/2);
-		top: calc(50% - 20px/2 - 64.5px);
-	}
-	.form-title h2{
-		font-weight: bold;
 		text-align: center;
+		font-weight: 700;
 		font-size: 18px;
+		margin-bottom: 20px;
+		width: 100%;	
 	}
-	#form label:nth-child(1){
-		bottom: 61.01%;
+	.first-input, .second-input, .third-input{
+		margin:  0px;	
 	}
-	#form label:nth-child(2), label:nth-child(3){	
-		bottom: 60.78%;
+	.wrapper{
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
-	.dropdown{
-		width: 150px;
-		left: 2.75%;
-		right: 76.65%;
-		top: 32.28%;
-		bottom: 37.57%;
+	.first-input, .third-input{
+		padding: 0px;
+		max-width: 35%;
 	}
-	.dropdown select{
-		width: 150px;
-		height: 32px;
-		left: 0%;
-		right: 0%;
-		top: 25px;
-		border-radius: 4px;
+	.second-input{
+		max-width: 60%;
+		margin: 0px 10px;
 	}
-	.name-div{
-		width: 348px;
-		left: 26.1%;
-		right: 26.1%;
-		top: 32.28%;
-		bottom: 37.57%;
+	.second-input{
+		margin-left: 20px;
+		margin-right: 20px;
 	}
-	.name-div input{
-		width: 348px;
-		height: 32px;
-		left: 0px;
-		right: 0px;
-		top: 24px;
-		border-radius: 4px;
+	.button-form{
+		display: flex;
+		width:  100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		max-width: 100%;
+		justify-content: flex-end;
 	}
-	.value-div{
-		width: 150px;
-		left: 76.65%;
-		right: 2.75%;
-		top: 32.28%;
-		bottom: 38.62%;
+	.button-form button{
+		max-width: 28%;
+		margin-right: 25px;
 	}
-	.value-div input{
-		z-index: -1;
-		width: 150px;
-		height: 32px;
-		left: 0px;
-		right: 0px;
-		top: 24px;
+	/* configurando tabela */
+	table{
+		width: 100%;
 	}
-	#form label:nth-child(1){
-	bottom: 61.01%;
+	#table h2{
+		text-align: center;
 	}
-	#form label:nth-child(2), label:nth-child(3){	
-		bottom: 60.78%;
+}
+@media screen and (min-width: 1112px)   and (orientation: landscape) { 
+	/* configurando cabeçalho */
+	header .hamburguer{
+		display: none;
 	}
-	#form .button-div{
-		z-index: -1;
-		width: 200px;
-		left: 69.78%;
-		right: 2.75%;
-		top: 71.96%;
-		bottom: 10.58%;
+	header h2{
+		text-align: left;
+		margin-left: 10px;
 	}
-	#ac-statement{
-		z-index: -1;
-		width: 728px;
-		height: 281px;
-		left: calc(50% - 728px/2);
-		top: 316px;
+	nav{
+		display: initial;
+		width: 233px;
+		height: 40px;
+		background: #FFFFFF;
+		text-align: center;
+		color: #333333;
+		margin-top: 10px;
+		margin-right: 10px;
 	}
-	#ac-statement h2{
-		left: 277px;
+	.div-img{
+		display: none;
 	}
-
-	#frame{
-		width: 728px;
+	.div-button{
+		height: 100%;
+		display: flex;
+		width: 100%;
+		flex-direction: row;
 	}
-	.thead-1{
-		left: 40px;
+	nav button:nth-child(1){
+		margin-top: 0px;
+		padding: 0px;
+		border-right: 1px solid #979797;
 	}
-	.thead-2{
-		left: 675px;
+	nav button{
+		cursor: pointer;
+		display: unset;
+		background: transparent;
+		font-family: lato;
+		font-size: 16px;
+		font-weight: 600;
+		color: #333333;
 	}
-	.vl{
-		width: 728px;
+	/* configurando div com conteúdos (formulário e tabela) */
+	#content{
+		margin-top: 70px;
+		flex-direction: row;
+		width: 100%;
 	}
-	.l1 td:nth-child(1), .l2 td:nth-child(1), .l3 td:nth-child(1){
-		left: 20px;
+	/* configurando formulário */
+	#form{
+		margin-top: 0px;
+		border: 1px solid #979797;
+		margin-right: 5px;
 	}
-	.l1 td:nth-child(2), .l2 td:nth-child(2), .l3 td:nth-child(2), .l4 td:nth-child(1){
-		left: 40px;
+	form{
+		width: 400px;
 	}
-	.l1 td:nth-child(3), .l2 td:nth-child(3), .l3 td:nth-child(3), .l4 td:nth-child(2), .l4 td:nth-child(3){
-		left: 610px;
+	#form, .wrapper{
+		flex-direction: column;
+		justify-content: center;
+		flex-wrap: nowrap;
+	}
+	#form h2{
+		display: block;
+		text-align: center;
+		font-weight: 700;
+		font-size: 18px;
+		margin-bottom: 20px;
+		width: 100%;	
+	}
+	.first-input, .second-input, .third-input{
+		padding: 0px;
+		margin: 0px;
+		max-width: 100%;
+		margin-top: 10px;
+	}
+	.button-form{
+		justify-content: center;
+	}
+	.button-form button{
+		max-width: 100%;
+	}
+	/* configurando tabela */	
+	#table{
+		margin-top: 0px;
+	}
+	table{
+		width: 652px;
+	}
+	#table h2{
+		text-align: center;
 	}
 	
 }
-@media screen and (min-width:  1112px) and (orientation: landscape){
-	#header{
-		height: 80px;
-		justify-content: normal;
+@media screen and (min-width: 1500px)   and (orientation: landscape) {
+	/* configurando cabeçalho */
+	header{
+		width: 75%;
 	}
-	#logo{
-		width: 40px;
-		height: 36.84px;
-	}
-	#header h2{
-		width: 411px;
-		left: 82px;
-		top: 19px;
-		font-size: 24px;
-
-	}
-	#menu{
-		display: none;
-	}
-	.nav{
-		width: 350px;
-		height: 40px;
-		left: 742px;
-		top: 20px;
-		background: #FFFFFF;
-	}
-	#menu-close{
-		display: none;
-	}
-	.nav ul{
-		top: 0px;
-	}
-	
-	.nav li{
-		position: absolute;
-		text-align: center;
-		margin: 0px;
-		padding: 0px;
-	}
-	.nav li:nth-child(1){
-		margin-top: 0px;
-		height: 40px;
-		width:200px;
-		top: 10px;
-	}
-	.nav li:nth-child(2){
-		height: 40px;
-		width: 150px;
-		right: -360px;
-		top: 10px;
-	}
-	.nav a{
-		display: inline;
-		color: #333333;
-		text-align: center;
-	}
-	.nav a:hover{
-		color: #E0E0E0;
-		background: transparent;
-	}
-	#form{
-
-		width: 400px;
-		height: 344px;
-		left: 50px;
-		top: calc(50% - 344px/2);
-		border: 1px solid #333333;
-	}
-	.form-title{
-		display: flex;
-		position: absolute;
-		height: 20px;
-		left: calc(50% - 174px/2);
-		top: calc(50% - 20px/2 - 142px);
-		
-	}
-	.form-title h2{;
-		font-weight: bold;
-		font-size: 18px;
-		
-	}
-	#form label:nth-child(1){
-	bottom: 61.01%;
-	}
-	#form label:nth-child(2), label:nth-child(3){	
-		bottom: 60.78%;
-	}
-	.dropdown{
-		width: 400px;
-		left: 3.72%;
-		right: 3.72%;
-		top: 17.73%;
-		bottom: 65.7%;
-	}
-	.dropdown select{
-		width: 370.2px;
-		height: 32px;
-		left: 0%;
-		right: 0%;
-		top: 25px;
-	}
-	.name-div{
-		left: 3.72%;
-		right: 3.72%;
-		top: 40.12%;
-		bottom: 43.31%;
-	}
-	.name-div input{
-		width: 370.2px;
-		height: 32px;
-		left: 0px;
-		right: 0.2px;
-		top: 24px;
-	}
-	.value-div{
-		left: 3.72%;
-		right: 3.72%;
-		top: 62.5%;
-		bottom: 21.51%;
-	}
-	.value-div input{
-		width: 370.2px;
-		height: 32px;
-		left: 0px;
-		right: 0.2px;
-		top: 24px;
-	}
-	#form .button-div{
-		left: 3.72%;
-		right: 3.72%;
-		top: 84.59%;
-		bottom: 5.81%;
-	}
-	#ac-statement{
-		width: 652px;
-		height: 281px;
-		left:	550px;;
-		top: calc(50% - 344px/2);
-		text-align: center;
-		}
-
-	#ac-statement h2{
-		left: 239px;
-	}
-	#frame{
-		width: 652px;
-	}
-	.thead-1{
-		left: 40px;
-	}
-	.thead-2{
-		left: 599px;
-	}
-	.vl{
-		width: 652px;
-	}
-	/.l1 td:nth-child(1), .l2 td:nth-child(1), .l3 td:nth-child(1){
-		left: 20px;
-	}
-	.l1 td:nth-child(2), .l2 td:nth-child(2), .l3 td:nth-child(2), .l4 td:nth-child(1){
-		left: 40px;
-	}
-	.l1 td:nth-child(3), .l2 td:nth-child(3), .l3 td:nth-child(3), .l4 td:nth-child(2), .l4 td:nth-child(3){
-		left: 580px;
-	}
-}
-
-@media screen and (min-width: 1500px){
-	#header{
-		height: 80px;
-	}
-	#logo{
-		width: 40px;
-		left: 50px;
-		height: 36.84px;
-	}
-	#header h2{
-		width: 411px;
-		left: 60px;
-		top: 19px;
-		font-size: 24px;
-
-	}
-	#menu{
-		display: none;
-	}
-	.nav{
-		width: 350px;
-		height: 40px;
-		left: 750px;
-		top: 20px;
-		background: #FFFFFF;
-	}
-	#menu-close{
-		display: none;
-	}
-	.nav ul{
-		top: 0px;
-	}
-	
-	.nav li{
-		position: absolute;
-		text-align: center;
-		margin: 0px;
-		padding: 0px;
-	}
-	.nav li:nth-child(1){
-		margin-top: 0px;
-		height: 40px;
-		width:200px;
-		top: 10px;
-	}
-	.nav li:nth-child(2){
-		height: 40px;
-		width: 150px;
-		right: -360px;
-		top: 10px;
-	}
-	.nav a{
-		display: inline;
-		color: #333333;
-		text-align: center;
-	}
-	.nav a:hover{
-		color: #E0E0E0;
-		background: transparent;
-	}
-	#form{
-		width: 400px;
-		height: 344px;
-		left: 50px;
-		top: 120px;
-		border: 1px solid #333333;
-	}
-	.form-title{
-		display: flex;
-		position: absolute;
-		height: 20px;
-		left: calc(50% - 174px/2);
-		top: calc(50% - 20px/2 - 142px);
-		
-	}
-	.form-title h2{;
-		font-weight: bold;
-		font-size: 18px;
-		
-	}
-	.dropdown{
-		width: 400px;
-		left: 3.72%;
-		right: 3.72%;
-		top: 17.73%;
-		bottom: 65.7%;
-	}
-	.dropdown select{
-		width: 370.2px;
-		height: 32px;
-		left: 0%;
-		right: 0%;
-		top: 25px;
-	}
-	.name-div{
-		left: 3.72%;
-		right: 3.72%;
-		top: 40.12%;
-		bottom: 43.31%;
-	}
-	.name-div input{
-		width: 370.2px;
-		height: 32px;
-		left: 0px;
-		right: 0.2px;
-		top: 24px;
-	}
-	.value-div{
-		left: 3.72%;
-		right: 3.72%;
-		top: 62.5%;
-		bottom: 21.51%;
-	}
-	.value-div input{
-		width: 370.2px;
-		height: 32px;
-		left: 0px;
-		right: 0.2px;
-		top: 24px;
-	}
-	#form .button-div{
-		left: 3.72%;
-		right: 3.72%;
-		top: 84.59%;
-		bottom: 5.81%;
-	}
-	#ac-statement{
-		width: 680px;
-		height: 281px;
-		left:	500px;;
-		top: 120px;
-		text-align: center;
-		}
-
-	#ac-statement h2{
-		left: 239px;
-	}
-	#frame{
-		width: 652px;
-	}
-	.thead-1{
-		left: 40px;
-	}
-	.thead-2{
-		left: 627px;
-	}
-	.vl{
-		width: 680px;
-	}
-	/.l1 td:nth-child(1), .l2 td:nth-child(1), .l3 td:nth-child(1){
-		left: 20px;
-	}
-	.l1 td:nth-child(2), .l2 td:nth-child(2), .l3 td:nth-child(2), .l4 td:nth-child(1){
-		left: 40px;
-	}
-	.l1 td:nth-child(3), .l2 td:nth-child(3), .l3 td:nth-child(3), .l4 td:nth-child(2), .l4 td:nth-child(3){
-		left: 600px;
-	}
-
 }
