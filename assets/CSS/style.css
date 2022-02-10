@@ -42,6 +42,9 @@ header .hamburguer{
 	margin-right: 24px;
 	cursor: pointer;
 }
+header input{
+	display: none;
+}
 /* configurando menu de navegação */
 nav{
 	position: absolute;
