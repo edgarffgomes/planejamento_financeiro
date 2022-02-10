@@ -44,10 +44,9 @@ header .hamburguer{
 }
 /* configurando menu de navegação */
 nav{
-	display: flex;
 	position: absolute;
 	height: 100vh;
-	display: none;
+	display: flex;
 	width: 0px;
 	background: #333333;
 	right: 0;
@@ -79,6 +78,7 @@ nav button:hover{
 	background: #FFFFFF;
 	color: #333333;
 }
+
 nav button:nth-child(1){
 	margin-top: 90px;
 }

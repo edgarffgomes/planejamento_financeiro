@@ -4,102 +4,99 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<title>Home</title>
-		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="../assets/CSS/style.css">
 	</head>
 	<body>
 		<div id="header">
 			<header>
-					<img class="logo" src="../assets/img/logo.png" alt="logo">
-					<h2>Controle financeiro</h2>
-				
-					<img class ="hamburguer" src="../assets/img/hamburguer.png" alt="abrir menu">
-
-					<nav>
-						<div class="div-img">
-							<img src="../assets/img/x-vector.svg" alt ="fechar menu">
-						</div>
-						<div class="div-button">
-							<button>Cadastro de transações</button>
-							<button>Limpar Dados</button>
-						</div>
-					</nav>
+				<img class="logo" src="../assets/img/logo.png" alt="logo">
+				<h2>Controle financeiro</h2>
+				<img class ="hamburguer" src="../assets/img/hamburguer.png" alt="abrir menu">
+				<nav>
+					<div class="div-img">
+						<img src="../assets/img/x-vector.svg" alt ="fechar menu">
+					</div>
+					<div class="div-button">
+						<button>Cadastro de transações</button>
+						<button>Limpar Dados</button>
+					</div>
+				</nav>
 			</header>
 		<div>
 			
 		<div id="content">
-				<section id="form">
-					<div class="h2-form">
-						<h2>Nova transação</h2>
-					</div>
-					<form>
-						<div class="wrapper">
-							<div class="first-input">
-								<label for="transaction-type">Tipo de transação</label>
-								<select id="transaction-type">
-									<option value="compra">Compra</option>
-									<option value="venda">Venda</option>
-								</select>
-							</div>
-
-							<div class="second-input">
-								<label for="merch-name">Nome da mercadoria</label>
-								<input type="text" id="merch-name" placeholder="input">
-							</div>
-
-							<div class="third-input">
-								<label for="value">Valor</label>
-								<input type="value" id="value" placeholder="R$ 0,00">
-							</div>
+			<section id="form">
+				<div class="h2-form">
+					<h2>Nova transação</h2>
+				</div>
+				<form>
+					<div class="wrapper">
+						<div class="first-input">
+							<label for="transaction-type">Tipo de transação</label>
+							<select id="transaction-type" required>
+								<option value="compra">Compra</option>
+								<option value="venda">Venda</option>
+							</select>
 						</div>
 
-						<div class="button-form">
-							<button>Adicionar transação</button>
+						<div class="second-input">
+							<label for="merch-name">Nome da mercadoria</label>
+							<input type="text" id="merch-name" placeholder="input" required>
 						</div>
-					</form>
-					<div class="form-line"></div>
-				</section>
 
-				<section id="table">
-					<div>
-						<h2>Extrato de transações</h2>
+						<div class="third-input">
+							<label for="value">Valor</label>
+							<input type="text" id="value" placeholder="R$ 0,00" required>
+						</div>
 					</div>
 
-					<div>
-						<table>
-							<thead>
-								<tr>
-									<th colspan="1.5"></th>
-									<th colspan="1.5">Mercadoria</th>
-									<th colspan="1.5">Valor</th>
-								</tr>
-							</thead>
+					<div class="button-form">
+						<button type="submit">Adicionar transação</button>
+					</div>
+				</form>
+				<div class="form-line"></div>
+			</section>
 
-							<tbody>
-								<tr>
-									<td colspan="0.3">+</td>
-									<td>Lorem ipsum dolor sit amet<br>constecteur</td>
-									<td>R$ 12.999,99</td>
-								</tr>
-								<tr>
-									<td colspan="0.3">-</td>
-									<td>Quis nostrud exercitation</td>
-									<td>R$ 99,99</td>
-								</tr>
-								<tr>
-									<td colspan="0.3">+</td>
-									<td>Lorem ipsum</td>
-									<td>R$ 99,99</td>
-								</tr>
-							</tbody>
+			<section id="table">
+				<div>
+					<h2>Extrato de transações</h2>
+				</div>
 
-							<tfoot>
-								<tr>
-									<td></td>
-									<td>Total</td>
-									<td>R$ 12.909,99 <br> (LUCRO)</td>
-								</tr>
-							</tfoot>
+				<div>
+					<table class="lista">
+						<thead>
+							<tr>
+								<th colspan="1.5"></th>
+								<th colspan="1.5">Mercadoria</th>
+								<th colspan="1.5">Valor</th>
+							</tr>
 						</thead>
+
+						<tbody>
+							<tr>
+								<td colspan="0.3">+</td>
+								<td>Lorem ipsum dolor sit amet<br>constecteur</td>
+								<td>R$ 12.999,99</td>
+							</tr>
+							<tr>
+								<td colspan="0.3">-</td>
+								<td>Quis nostrud exercitation</td>
+								<td>R$ 99,99</td>
+							</tr>
+							<tr>
+								<td colspan="0.3">+</td>
+								<td>Lorem ipsum</td>
+								<td>R$ 99,99</td>
+							</tr>
+						</tbody>
+							
+						<tfoot>
+							<tr>
+								<td></td>
+								<td>Total</td>
+								<td> <br> </td>
+							</tr>
+						</tfoot>
 					</table>
 				</div>
 			</section>
@@ -109,5 +106,6 @@
 			<div></div>
 		</footer>
 
+		
 	</body>
 </html>
