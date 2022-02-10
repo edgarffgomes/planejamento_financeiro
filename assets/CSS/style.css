@@ -194,7 +194,11 @@ footer div{
 	width: 100%;
 	background: 1px solid #333333;
 }
-@media screen and (min-width: 768px) and (orientation: landscape){
+@media screen and (min-width: 768px) and (orientation: portrait){
+	/* Configurando display da barra de navegação */
+	header input[type=checkbox]:checked ~ nav{
+		width: 30%;
+	}
 	/* configurando formulário */
 	#form{
 		border: 1px solid #979797;
