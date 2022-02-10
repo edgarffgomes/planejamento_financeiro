@@ -42,15 +42,23 @@ header .hamburguer{
 	margin-right: 24px;
 	cursor: pointer;
 }
+header button{
+	background: transparent;
+	border: none;
+}
 header input{
 	display: none;
 }
+header input[type=checkbox]:checked ~ nav{
+	width: 90%;
+}
+
 /* configurando menu de navegação */
 nav{
 	position: absolute;
 	height: 100vh;
 	display: flex;
-	width: 0px;
+	width: 0;
 	background: #333333;
 	right: 0;
 	top: 0;
@@ -67,6 +75,7 @@ nav img{
 	display: flex;
 	width: 16px; 
 	margin-left: 20px;
+	cursor: pointer;
 }
 nav button{
 	display: flex;
