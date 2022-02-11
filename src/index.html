@@ -41,11 +41,11 @@
 					<h2>Nova transação</h2>
 				</div>
 				<!-- Início do formulário -->
-				<form>
+				<form onsubmit="testInputs(event)">
 					<div class="wrapper">
 						<div class="first-input">
 							<label for="transaction-type">Tipo de transação</label>
-							<select id="transaction-type" required>
+							<select id="transaction-type">
 								<option value="compra">Compra</option>
 								<option value="venda">Venda</option>
 							</select>
@@ -53,12 +53,12 @@
 
 						<div class="second-input">
 							<label for="merch-name">Nome da mercadoria</label>
-							<input type="text" id="merch-name" placeholder="input" required>
+							<input type="text" id="merch-name" placeholder="input">
 						</div>
 
 						<div class="third-input">
 							<label for="value">Valor</label>
-							<input type="text" id="value" onkeypress="mask(event)" placeholder="R$ 0,00" required>
+							<input type="text" id="value" onkeypress="mask(event)" placeholder="R$ 0,00">
 						</div>
 					</div>
 
