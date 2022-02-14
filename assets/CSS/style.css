@@ -325,7 +325,7 @@ footer div{
 	.first-input, .second-input, .third-input{
 		padding: 0px;
 		margin: 0px;
-		max-width: 100%;
+		max-width: 98%;
 		margin-top: 10px;
 	}
 	.button-form{
@@ -337,6 +337,7 @@ footer div{
 	/* configurando tabela */	
 	#table{
 		margin-top: 0px;
+		margin-left: 15px;
 	}
 	table{
 		width: 652px;
