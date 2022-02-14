@@ -51,6 +51,7 @@ function testInputs(e){
 		drawTable()
 }
 
+//Função para imprimir dados resgatados na tabela de transações
 function drawTable(){
 
 	//código para evitar repetição de elementos já impressos
@@ -60,13 +61,22 @@ function drawTable(){
 	currentLines.forEach((element)=> {
 		element.remove()
 	})
+	//inserindo elementos na barra de transações
 	for(data in transactionList){
 		document.querySelector('table.lista tbody').innerHTML += `
 			<tr class="dynamic-row">
 				<td colspan="1.5">${transactionList[data].type == 'compra' ? `-`:`+`}</td>
 				<td>${transactionList[data].name}</td>
-				<td>R$ ${transactionList[data].value}<br><button class="deleteData(data)">Excluir</button></td>
+				<td>R$ ${transactionList[data].value}<br><button onclick="deleteData(data)">Excluir</button></td>
 			</tr>
 		`
 	}
+}
+function deleteData(d){
+	//removendo um elemento com o index d da lista
+	transactionList.splice(d,1)
+	//enviando lista atualizada para local storage
+	localStorage.setItem('transaction', JSON.stringify(transactionList))
+	//redesenhando tabela atualizada
+	drawTable()
 }
