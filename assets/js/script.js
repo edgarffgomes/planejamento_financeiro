@@ -46,7 +46,9 @@ function testInputs(e){
 
 		transactionList.push(litObj)
 		localStorage.setItem("transaction", JSON.stringify(transactionList))
+		
 		drawTable()
+
 }
 
 //Função para imprimir dados resgatados na tabela de transações
@@ -119,6 +121,6 @@ function cleanData(){
 	while(transactionList.length){
 		transactionList.pop()
 	}
-	localStorage.setItem('transaciton', transactionList)
+	localStorage.clear()
 	drawTable()
 }
