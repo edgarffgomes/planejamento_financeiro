@@ -5,6 +5,7 @@ if(transRaw == null){
 } else{
 	var transactionList = JSON.parse(localStorage.getItem('transaction'))
 }
+calculaTotal()
 drawTable()
 //Função máscara para aceitar apenas caracteres específicos no campo value.
 function mask(e){
@@ -19,24 +20,26 @@ function testInputs(e){
 	e.preventDefault()
 	var tt = document.getElementById('transaction-type').value
 	var nm = document.getElementById('merch-name').value
+	if(document.getElementById('value').value == ''){
+		alert('Por favor, insira um valor para a transação!')
+		document.getElementById('value').focus()
+		return false
+	} else {
+			if(document.getElementById('value').value.indexOf(',') == -1){
+				alert('Favor, adicionar a quantia em centavos!')
+				document.getElementById('value').focus()
+				return false
+			}
+		}
 	var vl = document.getElementById('value').value.replace('.','').replace(',','.')
+	console.log(vl)
 	if(nm == ''){
 		alert('Por favor, insira um nome para a mercadoria')
 		document.getElementById('merch-name').focus()
 		return false
 	}
 	
-	if(vl == ''){
-		alert('Por favor, insira um valor para a transação!')
-		document.getElementById('value').focus()
-		return false
-	} else {
-			if(vl.indexOf('.') == -1){
-				alert('Favor, adicionar a quantia em centavos!')
-				document.getElementById('value').focus()
-				return false
-			}
-		}
+	
 
 		//criação do objeto literal que receberá os valores dos inputs para ser enviado para a lista
 		var litObj = {
@@ -46,7 +49,6 @@ function testInputs(e){
 		}
 	
 		transactionList.push(litObj)
-		console.log(transactionList)
 		localStorage.setItem("transaction", JSON.stringify(transactionList))
 		drawTable()
 }
@@ -71,12 +73,46 @@ function drawTable(){
 			</tr>
 		`
 	}
+	if(transactionList .length == 0 ){
+		document.querySelector('table.lista tbody').innerHTML += `
+			<tr class="dynamic-row">
+				<td colspan="1.5"></td>
+				<td>Nenhuma transação cadastrada</td>
+				<td></td>
+			</tr>
+		`
+	}
+	calculaTotal()
 }
 function deleteData(d){
 	//removendo um elemento com o index d da lista
 	transactionList.splice(d,1)
 	//enviando lista atualizada para local storage
 	localStorage.setItem('transaction', JSON.stringify(transactionList))
+	//recalculando total
+	calculaTotal()
 	//redesenhando tabela atualizada
 	drawTable()
+}
+//função para calcular o total
+function calculaTotal(){
+	//recebendo a lista de local storage
+	transactionList = JSON.parse(localStorage.getItem('transaction'))
+	var total = 0
+	//verificando se há algum elemento na lista
+	if(transactionList.length != 0){
+		//somando ou subtraindo dependendo do tipo de transação
+		for(data in transactionList){
+			if(transactionList[data].type == 'venda'){
+				total += parseFloat(transactionList[data].value)
+			}
+			else{
+				total -= parseFloat(transactionList[data].value)
+			}
+		}
+	}
+	//atualizando o valor total na tabela
+	document.querySelector('table.lista tr.total .value').innerHTML = `
+		R$ ${total.toFixed(2).toString().replace('.', ',')}<br>${total>=0 ? '(LUCRO)': '(PREJUÍZO)'}
+	`
 }
