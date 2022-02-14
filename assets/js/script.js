@@ -112,3 +112,13 @@ function calculaTotal(){
 		R$ ${total.toFixed(2).toString().replace('.', ',')}<br>${total>=0 ? '(LUCRO)': '(PREJUÍZO)'}
 	`
 }
+function transactionLog(){
+	document.getElementById('merch-name').focus()
+}
+function cleanData(){
+	for(data in transactionList){
+		deleteData(data)
+	}
+	deleteData(0)
+	drawTable()
+}
