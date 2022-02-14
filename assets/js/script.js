@@ -116,9 +116,9 @@ function transactionLog(){
 	document.getElementById('merch-name').focus()
 }
 function cleanData(){
-	for(data in transactionList){
-		deleteData(data)
+	while(transactionList.length){
+		transactionList.pop()
 	}
-	deleteData(0)
+	localStorage.setItem('transaciton', transactionList)
 	drawTable()
 }
