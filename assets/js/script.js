@@ -32,22 +32,18 @@ function testInputs(e){
 			}
 		}
 	var vl = document.getElementById('value').value.replace('.','').replace(',','.')
-	console.log(vl)
 	if(nm == ''){
 		alert('Por favor, insira um nome para a mercadoria')
 		document.getElementById('merch-name').focus()
 		return false
 	}
-	
-	
-
 		//criação do objeto literal que receberá os valores dos inputs para ser enviado para a lista
 		var litObj = {
 			type: tt,
 			name: nm,
 			value: vl,
 		}
-	
+
 		transactionList.push(litObj)
 		localStorage.setItem("transaction", JSON.stringify(transactionList))
 		drawTable()
@@ -73,7 +69,7 @@ function drawTable(){
 			</tr>
 		`
 	}
-	if(transactionList .length == 0 ){
+	if(transactionList.length == 0){
 		document.querySelector('table.lista tbody').innerHTML += `
 			<tr class="dynamic-row">
 				<td colspan="1.5"></td>
@@ -96,11 +92,11 @@ function deleteData(d){
 }
 //função para calcular o total
 function calculaTotal(){
-	//recebendo a lista de local storage
-	transactionList = JSON.parse(localStorage.getItem('transaction'))
+	//variável total recebendo 0 inicialmente
 	var total = 0
+
 	//verificando se há algum elemento na lista
-	if(transactionList.length != 0 && transactionList.length != null){
+	if(transactionList.length > 0){
 		//somando ou subtraindo dependendo do tipo de transação
 		for(data in transactionList){
 			if(transactionList[data].type == 'venda'){
