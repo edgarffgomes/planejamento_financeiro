@@ -100,7 +100,7 @@ function calculaTotal(){
 	transactionList = JSON.parse(localStorage.getItem('transaction'))
 	var total = 0
 	//verificando se há algum elemento na lista
-	if(transactionList.length != 0){
+	if(transactionList.length != 0 && transactionList.length != null){
 		//somando ou subtraindo dependendo do tipo de transação
 		for(data in transactionList){
 			if(transactionList[data].type == 'venda'){
