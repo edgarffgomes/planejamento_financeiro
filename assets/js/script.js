@@ -5,7 +5,7 @@ if(transRaw == null){
 } else{
 	var transactionList = JSON.parse(localStorage.getItem('transaction'))
 }
-calculaTotal()
+calcTotal()
 drawTable()
 //Função máscara para aceitar apenas caracteres específicos no campo value.
 function mask(e){
@@ -80,7 +80,10 @@ function drawTable(){
 			</tr>
 		`
 	}
-	calculaTotal()
+	calcTotal()
+	//limpando campos
+	document.getElementById('merch-name').value = ''
+	document.getElementById('value').value = ''
 }
 function deleteData(d){
 	//removendo um elemento com o index d da lista
@@ -88,12 +91,12 @@ function deleteData(d){
 	//enviando lista atualizada para local storage
 	localStorage.setItem('transaction', JSON.stringify(transactionList))
 	//recalculando total
-	calculaTotal()
+	calcTotal()
 	//redesenhando tabela atualizada
 	drawTable()
 }
 //função para calcular o total
-function calculaTotal(){
+function calcTotal(){
 	//variável total recebendo 0 inicialmente
 	var total = 0
 
@@ -115,6 +118,7 @@ function calculaTotal(){
 	`
 }
 function transactionLog(){
+	//fechando menu
 	document.getElementById('nav-selector').checked = false
 	document.getElementById('merch-name').focus()
 }
