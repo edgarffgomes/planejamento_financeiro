@@ -115,6 +115,7 @@ function calculaTotal(){
 	`
 }
 function transactionLog(){
+	document.getElementById('nav-selector').checked = false
 	document.getElementById('merch-name').focus()
 }
 function cleanData(){
@@ -122,5 +123,6 @@ function cleanData(){
 		transactionList.pop()
 	}
 	localStorage.clear()
+	document.getElementById('nav-selector').checked = false
 	drawTable()
 }
