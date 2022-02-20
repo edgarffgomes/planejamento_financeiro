@@ -5,13 +5,23 @@ if(transRaw == null){
 } else{
 	var transactionList = JSON.parse(localStorage.getItem('transaction'))
 }
-calcTotal()
+var keyAux
 drawTable()
 //Função máscara para aceitar apenas caracteres específicos no campo value.
 function mask(e){
 	var pattern = /[0-9 .,]+/g
 	if(pattern.test(e.key) == false){
 		e.preventDefault()
+	}
+	if(e.target.value.length == 0){
+		var insert = (e.target.value/10).toFixed(1)
+		e.target.value = insert.replace('.',',')
+	} else{
+		var insert = e.target.value.replace(',','.')
+		insert = (parseFloat(insert) * 10).toFixed(1)
+		console.log(insert)
+		insert = insert.replace('.',',')		
+		e.target.value = insert
 	}
 }
 
@@ -20,35 +30,40 @@ function testInputs(e){
 	e.preventDefault()
 	var tt = document.getElementById('transaction-type').value
 	var nm = document.getElementById('merch-name').value
-	if(document.getElementById('value').value == ''){
+	var vl = document.getElementById('value').value.replace(',','.')
+	if(vl == ''){
 		alert('Por favor, insira um valor para a transação!')
 		document.getElementById('value').focus()
 		return false
 	} else {
-			if(document.getElementById('value').value.indexOf(',') == -1){
-				alert('Favor, adicionar a quantia em centavos!')
-				document.getElementById('value').focus()
-				return false
-			}
+		if(vl.indexOf('.') == -1){
+			alert('Favor, adicionar a quantia em centavos!')
+			document.getElementById('value').focus()
+			return false
 		}
-	var vl = document.getElementById('value').value.replace('.','').replace(',','.')
+	}
+	vl = parseFloat(vl)
+	if(isNaN(vl)){
+		alert('Por favor, insira apenas números no campo valor!')
+		document.getElementById('value').focus()
+		return false
+	}
+	
 	if(nm == ''){
 		alert('Por favor, insira um nome para a mercadoria')
 		document.getElementById('merch-name').focus()
 		return false
 	}
-		//criação do objeto literal que receberá os valores dos inputs para ser enviado para a lista
-		var litObj = {
-			type: tt,
-			name: nm,
-			value: vl,
-		}
-
-		transactionList.push(litObj)
-		localStorage.setItem("transaction", JSON.stringify(transactionList))
-		
-		drawTable()
-
+	//criação do objeto literal que receberá os valores dos inputs para ser enviado para a lista
+	var litObj = {
+		type: tt,
+		name: nm,
+		value: vl,
+	}
+	transactionList.push(litObj)
+	console.log(transactionList)
+	localStorage.setItem("transaction", JSON.stringify(transactionList))	
+	drawTable()
 }
 
 //Função para imprimir dados resgatados na tabela de transações
@@ -67,7 +82,8 @@ function drawTable(){
 			<tr class="dynamic-row">
 				<td colspan="1.5">${transactionList[data].type == 'compra' ? `-`:`+`}</td>
 				<td>${transactionList[data].name}</td>
-				<td>R$ ${transactionList[data].value}<br><button onclick="deleteData(data)">Excluir</button></td>
+				<td> ${transactionList[data].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
+					<br><button onclick="deleteData(data)">Excluir</button></td>
 			</tr>
 		`
 	}
@@ -90,8 +106,6 @@ function deleteData(d){
 	transactionList.splice(d,1)
 	//enviando lista atualizada para local storage
 	localStorage.setItem('transaction', JSON.stringify(transactionList))
-	//recalculando total
-	calcTotal()
 	//redesenhando tabela atualizada
 	drawTable()
 }
@@ -105,17 +119,18 @@ function calcTotal(){
 		//somando ou subtraindo dependendo do tipo de transação
 		for(data in transactionList){
 			if(transactionList[data].type == 'venda'){
-				total += parseFloat(transactionList[data].value)
+				total += transactionList[data].value
 			}
 			else{
-				total -= parseFloat(transactionList[data].value)
+				total -= transactionList[data].value
 			}
 		}
 	}
 	//atualizando o valor total na tabela
 	document.querySelector('table.lista tr.total .value').innerHTML = `
-		R$ ${total.toFixed(2).toString().replace('.', ',')}<br>${total>=0 ? '(LUCRO)': '(PREJUÍZO)'}
-	`
+		 ${total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}<br>
+		${total > 0 ? 'LUCRO' : ''}
+		${total < 0 ? 'PREJUÍZO' : ''} `
 }
 function transactionLog(){
 	//fechando menu
@@ -123,9 +138,7 @@ function transactionLog(){
 	document.getElementById('merch-name').focus()
 }
 function cleanData(){
-	while(transactionList.length){
-		transactionList.pop()
-	}
+	transactionList = []
 	localStorage.clear()
 	document.getElementById('nav-selector').checked = false
 	drawTable()
