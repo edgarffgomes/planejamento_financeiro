@@ -6,6 +6,11 @@
 		<title>Home</title>
 		<!-- Arquivo CSS -->
 		<link rel="stylesheet" type="text/css" href="../assets/CSS/style.css">
+		<!-- Script JQuery -->
+		<script src="../assets/jq/jquery.min.js" type="text/javascript"></script>
+		<!-- Script Máscara Monetária Jquery -->
+		<script src="../assets/jq/jquery.maskMoney.js" type="text/javascript"></script>
+
 	</head>
 	<body>
 		<!--Iníco da div de cabeçalho -->
@@ -58,7 +63,7 @@
 
 						<div class="third-input">
 							<label for="value">Valor</label>
-							<input type="text" id="value" onkeypress="mask(event)" placeholder="R$ 0,00">
+							<input type="text" id="value" placeholder="R$ 0,00">
 						</div>
 					</div>
 
@@ -88,9 +93,9 @@
 						</thead>
 
 						<tbody>
-							
+
 						</tbody>
-							
+
 						<tfoot>
 							<tr class="total">
 								<td></td>
@@ -113,5 +118,11 @@
 
 		<!-- Script JS -->
 		<script type="text/javascript" src="../assets/js/script.js"></script>
-	</body>
+
+		<!-- Máscara Monetária -->
+		<script type="text/javascript">
+	 		$(function(){
+			 	$("#value").maskMoney();
+	 		})
+	 </script>
 </html>

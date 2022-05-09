@@ -7,23 +7,7 @@ if(transRaw == null){
 }
 var keyAux
 drawTable()
-//Função máscara para aceitar apenas caracteres específicos no campo value.
-function mask(e){
-	var pattern = /[0-9 .,]+/g
-	if(pattern.test(e.key) == false){
-		e.preventDefault()
-	}
-	if(e.target.value.length == 0){
-		var insert = (e.target.value/10).toFixed(1)
-		e.target.value = insert.replace('.',',')
-	} else{
-		var insert = e.target.value.replace(',','.')
-		insert = (parseFloat(insert) * 10).toFixed(1)
-		console.log(insert)
-		insert = insert.replace('.',',')		
-		e.target.value = insert
-	}
-}
+
 
 //função para validação de valores dos inputs.
 function testInputs(e){
@@ -43,12 +27,7 @@ function testInputs(e){
 		}
 	}
 	vl = parseFloat(vl)
-	if(isNaN(vl)){
-		alert('Por favor, insira apenas números no campo valor!')
-		document.getElementById('value').focus()
-		return false
-	}
-	
+
 	if(nm == ''){
 		alert('Por favor, insira um nome para a mercadoria')
 		document.getElementById('merch-name').focus()
@@ -62,7 +41,7 @@ function testInputs(e){
 	}
 	transactionList.push(litObj)
 	console.log(transactionList)
-	localStorage.setItem("transaction", JSON.stringify(transactionList))	
+	localStorage.setItem("transaction", JSON.stringify(transactionList))
 	drawTable()
 }
 
